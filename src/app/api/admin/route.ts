@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 import { sql } from '@vercel/postgres';
 
 // Simple PIN for demonstration. In a real app, use environment variables.
-const ADMIN_PIN = "1234";
+const ADMIN_PIN = "ruthnew";
 
 export async function POST(request: Request) {
     try {
