@@ -6,8 +6,8 @@ import { Mail, Instagram, Youtube, Twitter, Disc } from "lucide-react";
 export default function Contact() {
     const socials = [
         { name: 'Instagram', icon: <Instagram />, href: 'https://instagram.com/gregspero' },
-        { name: 'YouTube', icon: <Youtube />, href: 'https://youtube.com/gregspero' },
-        { name: 'Spotify', icon: <Disc />, href: 'https://open.spotify.com/artist/2vVjFwWd2Q4Q4Q4Q4Q4Q4Q' },
+        { name: 'YouTube', icon: <Youtube />, href: 'https://www.youtube.com/tinyroom' },
+        { name: 'Spotify', icon: <Disc />, href: 'https://open.spotify.com/artist/0zimAUeLZD9gEVSEgc9RRd' },
         { name: 'Twitter', icon: <Twitter />, href: 'https://twitter.com/gregspero' },
     ];
 
