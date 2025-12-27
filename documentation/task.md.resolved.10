@@ -1,0 +1,15 @@
+# Tasks
+
+- [x] Initialize Next.js Project <!-- id: 0 -->
+- [x] Setup Basic Design System (CSS Variables) <!-- id: 1 -->
+- [x] Create Navigation & Layout <!-- id: 2 -->
+- [x] Build Hero Section <!-- id: 3 -->
+- [x] Integrate Hero Video & Enhance Aesthetics <!-- id: 9 -->
+- [x] Build Biography Section <!-- id: 4 -->
+- [x] Build Music & Projects Section <!-- id: 5 -->
+- [x] Build Tech & Entrepreneurship Section <!-- id: 6 -->
+- [x] Refactor for Minimalist Design <!-- id: 10 -->
+- [x] Update Content: weeBID -> Artist AI <!-- id: 11 -->
+- [/] Verify Updates & Reduce Blur <!-- id: 12 -->
+- [x] Build Contact & Footer <!-- id: 7 -->
+- [ ] Verify & Polish <!-- id: 8 -->

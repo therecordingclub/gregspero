@@ -1,0 +1,43 @@
+# Implementation Plan - GregSpero.com Rebuild
+
+Rebuild of Greg Spero's personal website focusing on a premium, aesthetic, and dynamic user experience.
+
+## User Review Required
+- **Design Philosophy**: We are using Vanilla CSS with a focus on glassmorphism, smooth gradients, and micro-animations.
+- **Content**: We will scaffold the content based on the current site's public info (Spirit Fingers, Tiny Room, weeBID).
+
+## Proposed Changes
+
+### Project Initialization
+- Initialize a new Next.js app at `/Users/gregspero/.gemini/antigravity/scratch/gregspero-com`.
+- Structure: `app/`, `components/`, `styles/`.
+
+### Design System (Vanilla CSS)
+- **Colors**: Deep dark backgrounds (nearly black), vibrant accent colors (neon blues/purples for tech/jazz fusion vibe).
+- **Typography**: `Inter` or `Outfit` from Google Fonts.
+- **Animations**: CSS transitions for hover states, keyframes for entrance animations.
+
+### Components
+#### [NEW] [Layout](file:///Users/gregspero/.gemini/antigravity/scratch/gregspero-com/app/layout.tsx)
+- Global nav and footer.
+- SEO metadata.
+
+#### [NEW] [Hero Section](file:///Users/gregspero/.gemini/antigravity/scratch/gregspero-com/components/Hero.tsx)
+- Full-screen impactful intro.
+- Background video or high-quality dynamic gradient.
+
+#### [NEW] [Biography](file:///Users/gregspero/.gemini/antigravity/scratch/gregspero-com/components/Bio.tsx)
+- Scroll-triggered reveal of text.
+
+#### [NEW] [Projects](file:///Users/gregspero/.gemini/antigravity/scratch/gregspero-com/components/Projects.tsx)
+- Grid layout for Spirit Fingers, Tiny Room, weeBID.
+- Hover effects on cards.
+
+## Verification Plan
+### Automated Tests
+- Build verification: `npm run build`
+- Linting: `npm run lint`
+
+### Manual Verification
+- Verify responsiveness on mobile/desktop.
+- Check animation smoothness.

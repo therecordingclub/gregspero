@@ -1,0 +1,47 @@
+# Music Page Implementation Plan
+
+## Goal
+Replace the single-project "Spirit Fingers" page with a comprehensive `/music` page that showcases Greg Spero's entire musical career, including his solo work, Spirit Fingers, collaborations (Halsey, Miles Electric Band), and The Recording Club (Tiny Room).
+
+## User Review Required
+> [!IMPORTANT]
+> The `/spirit-fingers` route will be replaced/redirected to `/music`. The homepage "Spirit Fingers" card will be updated to link to `/music`.
+
+## Proposed Changes
+
+### Components
+#### [NEW] [MusicDashboard](file:///src/app/music/page.tsx)
+A new page component at `src/app/music/page.tsx` featuring:
+- **Hero Section**: "Greg Spero / Music" with a high-impact visual.
+- **Listen Section**: Spotify Artist embed.
+- **Projects Showcase**:
+    - **Spirit Fingers**: Using the neon logo and video background assets (repurposed from the old page).
+    - **Halsey**: Mentioning his 4-year tenure as sound designer/keyboardist.
+    - **Miles Electric Band**: Highlighting his work with Miles Davis alumni.
+    - **The Recording Club / Tiny Room**: Embedding the "The Tip" or "Find" videos.
+- **Video Grid**: Selected YouTube embeds of top performances.
+
+#### [NEW] [Styles](file:///src/app/music/style.module.css)
+- Dark, premium aesthetic (consistent with the site).
+- Grid layouts for videos and projects.
+
+### Navigation
+#### [MODIFY] [Projects.tsx](file:///src/components/Projects.tsx)
+- Update the "Spirit Fingers" card.
+- **Change**: Card title from "Spirit Fingers" to "Music" or "Discography"? 
+    - *Decision*: Keep "Spirit Fingers" as a *highlight* distinct card? 
+    - *Better*: Rename the "Spirit Fingers" card to "Original Music" or "Discography" and link to `/music`. Or keep "Spirit Fingers" but link to the Spirit Fingers *section* of the music page (`/music#spirit-fingers`).
+    - *Refined Plan*: The user said "replace the Spirit Fingers page". I will change the link in [Projects.tsx](file:///Users/gregspero/.gemini/antigravity/scratch/gregspero-com/src/components/Projects.tsx) for the "Spirit Fingers" card to `/music` and potentially rename the title to "Music".
+
+### Assets
+- Reuse existing `neon-logo.png`, `peace-album.jpg`, `background.mp4`.
+- may utilize external images for Halsey/Miles Electric if available via URL, or text descriptions if valid images aren't handy (checking via search/browser if needed, but text + styling is safer).
+
+## Verification Plan
+### Automated Tests
+- Browser subagent to navigate to `/music`.
+- Verify presence of sections: Spirit Fingers, Halsey, Miles Electric Band, Spotify Embed.
+- Verify links work.
+
+### Manual Verification
+- Visual check of the layout and embeds.

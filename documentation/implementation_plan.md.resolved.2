@@ -1,0 +1,44 @@
+# Mailing List & Admin Portal Plan
+
+## Goal
+Add a mailing list subscription feature to the main website and creating an admin portal to view collected emails.
+
+## User Review Required
+> [!IMPORTANT]
+> **Data Storage**: For this V1 implementation on local/Vercel (serverless), we will use a JSON file (`data/emails.json`) for simplicity. **Note:** On Vercel (Production), local filesystem writes are ephemeral. If you deploy this, we should switch to a real database (Postgres/Supabase) or an external service (Mailchimp/ConvertKit). For now, `emails.json` works for local demo.
+
+> [!CAUTION]
+> **Security**: The Admin Portal will be password protected with a simple PIN for now to prevent public access.
+
+## Proposed Changes
+
+### Backend (API Routes)
+#### [NEW] [route.ts](file:///Users/gregspero/.gemini/antigravity/scratch/gregspero-com/src/app/api/subscribe/route.ts)
+- `POST`: Accepts `{ email }`. Validates email. Appends to `data/emails.json`.
+
+#### [NEW] [route.ts](file:///Users/gregspero/.gemini/antigravity/scratch/gregspero-com/src/app/api/admin/route.ts)
+- `POST`: Accepts `{ pin }`. Returns list of emails if PIN matches. (Using POST to keep PIN out of URL params).
+
+### Frontend (Components)
+#### [NEW] [Newsletter.tsx](file:///Users/gregspero/.gemini/antigravity/scratch/gregspero-com/src/components/Newsletter.tsx)
+- Simple input field + "Join" button.
+- Clean, minimalist design matching the site.
+- Toast/Message on success.
+
+#### [MODIFY] [page.tsx](file:///Users/gregspero/.gemini/antigravity/scratch/gregspero-com/src/app/page.tsx)
+- Add `Newsletter` component, likely in the Footer or a new "Connect" section.
+
+### Admin Portal
+#### [NEW] [page.tsx](file:///Users/gregspero/.gemini/antigravity/scratch/gregspero-com/src/app/admin/page.tsx)
+- Simple login form (Enter PIN).
+- Table view of subscribers.
+- Copy to clipboard functionality.
+
+## Verification Plan
+### Automated Tests
+- Test API endpoints via curl or browser console.
+### Manual Verification
+- Subscribe with a test email.
+- Verify email appears in `emails.json`.
+- Log in to Admin Portal.
+- Verify email appears in the list.

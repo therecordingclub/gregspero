@@ -1,0 +1,22 @@
+# Walkthrough - GregSpero.com Rebuild
+
+I have successfully rebuilt gregspero.com as a high-performance Next.js application with a premium, dark aesthetic.
+
+## Changes
+### Design System
+- **Dark Mode Core**: Deep background (`#030305`) with neon accents (Purple/Blue).
+- **Glassmorphism**: Used heavily in the Navbar and Content Cards for a modern feel.
+- **Typography**: Paired `Outfit` (Headings) with `Inter` (Body) for a clean, tech-forward look.
+
+### Components
+- **Hero**: Full-screen gradient intro with entrance animations.
+- **Bio**: Scroll-reveal biography highlighting Greg's dual career.
+- **Projects**: Grid layout showcasing Spirit Fingers, Tiny Room, and weeBID.
+- **Contact**: Simple, direct call-to-action with social links.
+
+## Verification
+- **Build**: Passed `npm run build` with no errors.
+- **Responsiveness**: Layout uses `clamp()` and flex/grid to adapt to mobile and desktop.
+
+### Next Steps
+- Run `npm run dev` in the `gregspero-com` directory to preview the site.

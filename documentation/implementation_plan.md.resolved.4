@@ -1,0 +1,66 @@
+# Mailing List & Admin Portal Plan
+
+## Goal
+Add a mailing list subscription feature to the main website and creating an admin portal to view collected emails.
+
+## User Review Required
+> [!IMPORTANT]
+> **Data Storage**: For this V1 implementation on local/Vercel (serverless), we will use a JSON file (`data/emails.json`) for simplicity. **Note:** On Vercel (Production), local filesystem writes are ephemeral. If you deploy this, we should switch to a real database (Postgres/Supabase) or an external service (Mailchimp/ConvertKit). For now, `emails.json` works for local demo.
+
+> [!CAUTION]
+> **Security**: The Admin Portal will be password protected with a simple PIN for now to prevent public access.
+
+## Proposed Changes
+
+### Backend (API Routes)
+#### [NEW] [route.ts](file:///Users/gregspero/.gemini/antigravity/scratch/gregspero-com/src/app/api/subscribe/route.ts)
+- [POST](file:///Users/gregspero/.gemini/antigravity/scratch/gregspero-com/src/app/api/admin/route.ts#10-35): Accepts `{ email }`. Validates email. Appends to `data/emails.json`.
+
+#### [NEW] [route.ts](file:///Users/gregspero/.gemini/antigravity/scratch/gregspero-com/src/app/api/admin/route.ts)
+- [POST](file:///Users/gregspero/.gemini/antigravity/scratch/gregspero-com/src/app/api/admin/route.ts#10-35): Accepts `{ pin }`. Returns list of emails if PIN matches. (Using POST to keep PIN out of URL params).
+
+### Frontend (Components)
+#### [NEW] [Newsletter.tsx](file:///Users/gregspero/.gemini/antigravity/scratch/gregspero-com/src/components/Newsletter.tsx)
+- Simple input field + "Join" button.
+- Clean, minimalist design matching the site.
+- Toast/Message on success.
+
+#### [MODIFY] [page.tsx](file:///Users/gregspero/.gemini/antigravity/scratch/gregspero-com/src/app/page.tsx)
+- Add [Newsletter](file:///Users/gregspero/.gemini/antigravity/scratch/gregspero-com/src/components/Newsletter.tsx#6-76) component, likely in the Footer or a new "Connect" section.
+
+### User Review Required
+> [!IMPORTANT]
+> **Typography**: Switching to a unified minimalist font (likely Outfit) for both the Navbar logo and Hero title. Removing the "hollow" text effect from the Hero to match the minimalist request.
+
+## Proposed Changes
+### Frontend (Components)
+#### [MODIFY] [Hero.tsx](file:///Users/gregspero/.gemini/antigravity/scratch/gregspero-com/src/components/Hero.tsx)
+- Remove `hollow` text effect.
+- Unify font style with Navbar.
+- Use `Outfit` (sans-serif) for a clean look.
+
+#### [MODIFY] [Navbar.tsx](file:///Users/gregspero/.gemini/antigravity/scratch/gregspero-com/src/components/Navbar.tsx)
+- Ensure explicit font usage.
+
+## Verification Plan
+### Automated Tests
+- Test API endpoints via curl or browser console.
+### Manual Verification
+- Subscribe with a test email.
+- Verify email appears in `emails.json`.
+- Log in to Admin Portal.
+- Verify email appears in the list.
+
+# Logo Improvement Plan
+## Goal
+Replace the plain text "Greg Spero" logo with a custom, premium SVG/PNG logo.
+
+## Proposed Design
+- **Style**: Minimalist, geometric, modern.
+- **Concept**: A stylized "GS" monogram or abstract piano key/ tech wave fusion.
+- **Color**: White/Monochrome to fit the dark aesthetic.
+
+## Implementation
+1. Generate options using `generate_image`.
+2. Present options to user.
+3. Replace text in [Navbar.tsx](file:///Users/gregspero/.gemini/antigravity/scratch/gregspero-com/src/components/Navbar.tsx) with selected `Image` component.
