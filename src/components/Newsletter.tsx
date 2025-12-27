@@ -28,7 +28,10 @@ const Newsletter = () => {
                 setEmail('');
             } else {
                 setStatus('error');
-                setMessage(data.error || 'Something went wrong.');
+                const errorMsg = data.details
+                    ? `${data.error}: ${data.details}${data.code ? ` (Code: ${data.code})` : ''}`
+                    : (data.error || 'Something went wrong.');
+                setMessage(errorMsg);
             }
         } catch (error) {
             setStatus('error');
